@@ -409,13 +409,22 @@ func CreateServer(api *ScalewayAPI, c *ConfigCreateServer) (string, error) {
 	if c.AdditionalVolumes != "" {
 		volumes := strings.Split(c.AdditionalVolumes, " ")
 		for i := range volumes {
-			volumeID, err := CreateVolumeFromHumanSize(api, volumes[i])
-			if err != nil {
-				return "", err
+			_, err = humanize.ParseBytes(volumes[i])
+			if err == nil { //image name is a size, create it
+				volumeID, err := CreateVolumeFromHumanSize(api, volumes[i])
+				if err != nil {
+					return "", err
+				}
+				volumeIDx := fmt.Sprintf("%d", i+1)
+				server.Volumes[volumeIDx] = *volumeID
+			} else { // image name might be a volume id
+				volumeID, err := api.GetVolumeID(volumes[i])
+				if err != nil {
+					return "", err
+				}
+				volumeIDx := fmt.Sprintf("%d", i+1)
+				server.Volumes[volumeIDx] = volumeID
 			}
-
-			volumeIDx := fmt.Sprintf("%d", i+1)
-			server.Volumes[volumeIDx] = *volumeID
 		}
 	}
 
