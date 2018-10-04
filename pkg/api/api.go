@@ -2186,7 +2186,7 @@ func FilterImagesByRegion(res ScalewayResolverResults, region string) (ret Scale
 		return res
 	}
 	for _, result := range res {
-		if result.Region == region {
+		if result.Region == region || result.Region == "" {
 			ret = append(ret, result)
 		}
 	}
