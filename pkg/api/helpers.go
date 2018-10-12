@@ -77,13 +77,23 @@ func ResolveGateway(api *ScalewayAPI, gateway string) (string, error) {
 
 // CreateVolumeFromHumanSize creates a volume on the API with a human readable size
 func CreateVolumeFromHumanSize(api *ScalewayAPI, size string) (*string, error) {
-	bytes, err := humanize.ParseBytes(size)
+	s := strings.Split(size, ":")
+	var err error
+	var volName string
+	var bytes uint64
+	if len(s) > 1 {
+		volName = s[1]
+		bytes, err = humanize.ParseBytes(s[0])
+	} else {
+		volName = s[0]
+		bytes, err = humanize.ParseBytes(volName)
+	}
 	if err != nil {
 		return nil, err
 	}
 
 	var newVolume ScalewayVolumeDefinition
-	newVolume.Name = size
+	newVolume.Name = volName
 	newVolume.Size = bytes
 	newVolume.Type = "l_ssd"
 
@@ -344,6 +354,7 @@ func OfferNameFromName(name string, products *ScalewayProductsServers) (*Product
 // CreateServer creates a server using API based on typical server fields
 func CreateServer(api *ScalewayAPI, c *ConfigCreateServer) (string, error) {
 	commercialType := os.Getenv("SCW_COMMERCIAL_TYPE")
+	var volumeID string
 	if commercialType == "" {
 		commercialType = c.CommercialType
 	}
@@ -409,7 +420,8 @@ func CreateServer(api *ScalewayAPI, c *ConfigCreateServer) (string, error) {
 	if c.AdditionalVolumes != "" {
 		volumes := strings.Split(c.AdditionalVolumes, " ")
 		for i := range volumes {
-			_, err = humanize.ParseBytes(volumes[i])
+			s := strings.Split(volumes[i], ":")
+			_, err = humanize.ParseBytes(s[0])
 			if err == nil { //image name is a size, create it
 				volumeID, err := CreateVolumeFromHumanSize(api, volumes[i])
 				if err != nil {
@@ -418,7 +430,11 @@ func CreateServer(api *ScalewayAPI, c *ConfigCreateServer) (string, error) {
 				volumeIDx := fmt.Sprintf("%d", i+1)
 				server.Volumes[volumeIDx] = *volumeID
 			} else { // image name might be a volume id
-				volumeID, err := api.GetVolumeID(volumes[i])
+				if len(s) > 1 {
+					volumeID, err = api.GetVolumeID(s[1])
+				} else {
+					volumeID, err = api.GetVolumeID(s[0])
+				}
 				if err != nil {
 					return "", err
 				}
@@ -437,7 +453,8 @@ func CreateServer(api *ScalewayAPI, c *ConfigCreateServer) (string, error) {
 	}
 	server.Name = c.Name
 	inheritingVolume := false
-	_, err = humanize.ParseBytes(c.ImageName)
+	parts := strings.Split(c.ImageName, ":")
+	_, err = humanize.ParseBytes(parts[0])
 	if err == nil {
 		// Create a new root volume
 		volumeID, errCreateVol := CreateVolumeFromHumanSize(api, c.ImageName)
