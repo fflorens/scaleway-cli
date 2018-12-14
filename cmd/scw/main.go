@@ -11,7 +11,7 @@ package main
 import (
 	"os"
 
-	"github.com/scaleway/scaleway-cli/pkg/cli"
+	"github.com/fflorens/scaleway-cli/pkg/cli"
 	"github.com/sirupsen/logrus"
 )
 

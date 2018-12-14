@@ -7,7 +7,7 @@ GOCLEAN ?=	$(GO) clean
 GOINSTALL ?=	$(GO) install
 GOTEST ?=	$(GO) test $(GOTESTFLAGS)
 GOFMT ?=	gofmt -w -s
-GODIR ?=	github.com/scaleway/scaleway-cli
+GODIR ?=	github.com/fflorens/scaleway-cli
 GOCOVER ?=	$(GOTEST) -covermode=count -v
 
 # FPM is a simple way to create debian/rpm/... packages.
@@ -86,24 +86,24 @@ prepare-release-dist: build
 	ln -s -f $(VERSION) dist/latest
 
 	### Cross compile scaleway-cli ###
-	GOOS=linux  GOARCH=386    go build -o dist/latest/scw-linux-i386        github.com/scaleway/scaleway-cli/cmd/scw
-	GOOS=linux  GOARCH=amd64  go build -o dist/latest/scw-linux-amd64       github.com/scaleway/scaleway-cli/cmd/scw
-	GOOS=linux  GOARCH=arm    go build -o dist/latest/scw-linux-arm         github.com/scaleway/scaleway-cli/cmd/scw
-	GOOS=linux  GOARCH=arm64  go build -o dist/latest/scw-linux-arm64       github.com/scaleway/scaleway-cli/cmd/scw
+	GOOS=linux  GOARCH=386    go build -o dist/latest/scw-linux-i386        github.com/fflorens/scaleway-cli/cmd/scw
+	GOOS=linux  GOARCH=amd64  go build -o dist/latest/scw-linux-amd64       github.com/fflorens/scaleway-cli/cmd/scw
+	GOOS=linux  GOARCH=arm    go build -o dist/latest/scw-linux-arm         github.com/fflorens/scaleway-cli/cmd/scw
+	GOOS=linux  GOARCH=arm64  go build -o dist/latest/scw-linux-arm64       github.com/fflorens/scaleway-cli/cmd/scw
 
-	GOOS=darwin  GOARCH=386   go build -o dist/latest/scw-darwin-i386       github.com/scaleway/scaleway-cli/cmd/scw
-	GOOS=darwin  GOARCH=amd64 go build -o dist/latest/scw-darwin-amd64      github.com/scaleway/scaleway-cli/cmd/scw
+	GOOS=darwin  GOARCH=386   go build -o dist/latest/scw-darwin-i386       github.com/fflorens/scaleway-cli/cmd/scw
+	GOOS=darwin  GOARCH=amd64 go build -o dist/latest/scw-darwin-amd64      github.com/fflorens/scaleway-cli/cmd/scw
 
-	GOOS=freebsd GOARCH=386   go build -o dist/latest/scw-freebsd-i386      github.com/scaleway/scaleway-cli/cmd/scw
-	GOOS=freebsd GOARCH=amd64 go build -o dist/latest/scw-freebsd-amd64     github.com/scaleway/scaleway-cli/cmd/scw
-	GOOS=freebsd GOARCH=arm   go build -o dist/latest/scw-freebsd-arm       github.com/scaleway/scaleway-cli/cmd/scw
+	GOOS=freebsd GOARCH=386   go build -o dist/latest/scw-freebsd-i386      github.com/fflorens/scaleway-cli/cmd/scw
+	GOOS=freebsd GOARCH=amd64 go build -o dist/latest/scw-freebsd-amd64     github.com/fflorens/scaleway-cli/cmd/scw
+	GOOS=freebsd GOARCH=arm   go build -o dist/latest/scw-freebsd-arm       github.com/fflorens/scaleway-cli/cmd/scw
 
-	GOOS=netbsd GOARCH=386    go build -o dist/latest/scw-netbsd-i386       github.com/scaleway/scaleway-cli/cmd/scw
-	GOOS=netbsd GOARCH=amd64  go build -o dist/latest/scw-netbsd-amd64      github.com/scaleway/scaleway-cli/cmd/scw
-	GOOS=netbsd GOARCH=arm    go build -o dist/latest/scw-netbsd-arm        github.com/scaleway/scaleway-cli/cmd/scw
+	GOOS=netbsd GOARCH=386    go build -o dist/latest/scw-netbsd-i386       github.com/fflorens/scaleway-cli/cmd/scw
+	GOOS=netbsd GOARCH=amd64  go build -o dist/latest/scw-netbsd-amd64      github.com/fflorens/scaleway-cli/cmd/scw
+	GOOS=netbsd GOARCH=arm    go build -o dist/latest/scw-netbsd-arm        github.com/fflorens/scaleway-cli/cmd/scw
 
-	GOOS=windows GOARCH=386   go build -o dist/latest/scw-windows-i386.exe  github.com/scaleway/scaleway-cli/cmd/scw
-	GOOS=windows GOARCH=amd64 go build -o dist/latest/scw-windows-amd64.exe github.com/scaleway/scaleway-cli/cmd/scw
+	GOOS=windows GOARCH=386   go build -o dist/latest/scw-windows-i386.exe  github.com/fflorens/scaleway-cli/cmd/scw
+	GOOS=windows GOARCH=amd64 go build -o dist/latest/scw-windows-amd64.exe github.com/fflorens/scaleway-cli/cmd/scw
 
 prepare-release-docker-image: dist/latest/scw-linux-i386
 	@echo ${VERSION} | grep -qv 'v' || ( echo "ERROR: VERSION not set or contains a leading 'v'" >&2 && exit 1 )
