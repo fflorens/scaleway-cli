@@ -12,9 +12,9 @@ import (
 	"time"
 
 	"github.com/docker/go-units"
-	"github.com/scaleway/scaleway-cli/pkg/commands"
-	"github.com/scaleway/scaleway-cli/pkg/pricing"
-	"github.com/scaleway/scaleway-cli/pkg/utils"
+	"github.com/fflorens/scaleway-cli/pkg/commands"
+	"github.com/fflorens/scaleway-cli/pkg/pricing"
+	"github.com/fflorens/scaleway-cli/pkg/utils"
 	"github.com/sirupsen/logrus"
 )
 

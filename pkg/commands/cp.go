@@ -13,8 +13,8 @@ import (
 	"strings"
 
 	"github.com/docker/docker/pkg/archive"
-	"github.com/scaleway/scaleway-cli/pkg/api"
-	"github.com/scaleway/scaleway-cli/pkg/utils"
+	"github.com/fflorens/scaleway-cli/pkg/api"
+	"github.com/fflorens/scaleway-cli/pkg/utils"
 	"github.com/sirupsen/logrus"
 )
 

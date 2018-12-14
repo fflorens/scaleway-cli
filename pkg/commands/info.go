@@ -11,8 +11,8 @@ import (
 
 	"github.com/kardianos/osext"
 
-	"github.com/scaleway/scaleway-cli/pkg/api"
-	"github.com/scaleway/scaleway-cli/pkg/config"
+	"github.com/fflorens/scaleway-cli/pkg/api"
+	"github.com/fflorens/scaleway-cli/pkg/config"
 )
 
 // InfoArgs are flags for the `RunInfo` function

@@ -9,7 +9,7 @@ import (
 	"sort"
 
 	"github.com/dustin/go-humanize"
-	"github.com/scaleway/scaleway-cli/pkg/api"
+	"github.com/fflorens/scaleway-cli/pkg/api"
 )
 
 // ProductsArgs are flags for the `RunProducts` function

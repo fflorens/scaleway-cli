@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"text/template"
 
-	"github.com/scaleway/scaleway-cli/pkg/api"
+	"github.com/fflorens/scaleway-cli/pkg/api"
 	"github.com/sirupsen/logrus"
 	"github.com/skratchdot/open-golang/open"
 )

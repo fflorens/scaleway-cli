@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/scaleway/scaleway-cli/pkg/scwversion"
+	"github.com/fflorens/scaleway-cli/pkg/scwversion"
 )
 
 // VersionArgs are flags for the `RunVersion` function

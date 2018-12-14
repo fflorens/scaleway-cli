@@ -10,8 +10,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/scaleway/scaleway-cli/pkg/api"
-	"github.com/scaleway/scaleway-cli/pkg/scwversion"
+	"github.com/fflorens/scaleway-cli/pkg/api"
+	"github.com/fflorens/scaleway-cli/pkg/scwversion"
 	"github.com/stretchr/testify/assert"
 )
 

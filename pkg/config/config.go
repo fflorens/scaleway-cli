@@ -15,7 +15,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/scaleway/scaleway-cli/pkg/scwversion"
+	"github.com/fflorens/scaleway-cli/pkg/scwversion"
 )
 
 // Config is a Scaleway CLI configuration file

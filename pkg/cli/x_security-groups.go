@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/scaleway/scaleway-cli/pkg/api"
+	"github.com/fflorens/scaleway-cli/pkg/api"
 )
 
 var cmdSecurityGroups = &Command{

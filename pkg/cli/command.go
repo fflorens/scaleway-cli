@@ -15,8 +15,8 @@ import (
 
 	flag "github.com/fflorens/mflag"
 
-	"github.com/scaleway/scaleway-cli/pkg/api"
-	"github.com/scaleway/scaleway-cli/pkg/commands"
+	"github.com/fflorens/scaleway-cli/pkg/api"
+	"github.com/fflorens/scaleway-cli/pkg/commands"
 )
 
 // errors

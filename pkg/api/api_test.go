@@ -3,7 +3,7 @@ package api
 import (
 	"testing"
 
-	"github.com/scaleway/scaleway-cli/pkg/scwversion"
+	"github.com/fflorens/scaleway-cli/pkg/scwversion"
 	. "github.com/smartystreets/goconvey/convey"
 )
 

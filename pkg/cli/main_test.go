@@ -7,7 +7,7 @@ import (
 	"os/exec"
 	"testing"
 
-	"github.com/scaleway/scaleway-cli/pkg/commands"
+	"github.com/fflorens/scaleway-cli/pkg/commands"
 	. "github.com/smartystreets/goconvey/convey"
 )
 

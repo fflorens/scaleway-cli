@@ -15,8 +15,8 @@ import (
 	"github.com/renstrom/fuzzysearch/fuzzy"
 	"github.com/sirupsen/logrus"
 
-	"github.com/scaleway/scaleway-cli/pkg/api"
-	"github.com/scaleway/scaleway-cli/pkg/utils"
+	"github.com/fflorens/scaleway-cli/pkg/api"
+	"github.com/fflorens/scaleway-cli/pkg/utils"
 )
 
 // PsArgs are flags for the `RunPs` function

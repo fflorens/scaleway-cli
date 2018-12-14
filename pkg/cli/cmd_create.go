@@ -7,7 +7,7 @@ package cli
 import (
 	"strings"
 
-	"github.com/scaleway/scaleway-cli/pkg/commands"
+	"github.com/fflorens/scaleway-cli/pkg/commands"
 )
 
 var cmdCreate = &Command{

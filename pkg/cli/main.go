@@ -17,12 +17,12 @@ import (
 	"github.com/sirupsen/logrus"
 
 	"github.com/hashicorp/go-version"
-	"github.com/scaleway/scaleway-cli/pkg/api"
-	"github.com/scaleway/scaleway-cli/pkg/clilogger"
-	"github.com/scaleway/scaleway-cli/pkg/commands"
-	"github.com/scaleway/scaleway-cli/pkg/config"
-	"github.com/scaleway/scaleway-cli/pkg/scwversion"
-	"github.com/scaleway/scaleway-cli/pkg/utils"
+	"github.com/fflorens/scaleway-cli/pkg/api"
+	"github.com/fflorens/scaleway-cli/pkg/clilogger"
+	"github.com/fflorens/scaleway-cli/pkg/commands"
+	"github.com/fflorens/scaleway-cli/pkg/config"
+	"github.com/fflorens/scaleway-cli/pkg/scwversion"
+	"github.com/fflorens/scaleway-cli/pkg/utils"
 )
 
 // global options
@@ -200,7 +200,7 @@ func checkVersion() {
 		req := http.Client{
 			Timeout: 1 * time.Second,
 		}
-		resp, err := req.Get("https://fr-1.storage.online.net/scaleway/scaleway-cli/VERSION")
+		resp, err := req.Get("https://fr-1.storage.online.net/fflorens/scaleway-cli/VERSION")
 		if resp != nil {
 			defer resp.Body.Close()
 		}

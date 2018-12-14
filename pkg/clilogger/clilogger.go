@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/moul/http2curl"
-	"github.com/scaleway/scaleway-cli/pkg/api"
+	"github.com/fflorens/scaleway-cli/pkg/api"
 	"github.com/sirupsen/logrus"
 )
 

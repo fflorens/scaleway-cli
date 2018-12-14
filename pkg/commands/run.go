@@ -12,9 +12,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/scaleway/scaleway-cli/pkg/api"
-	"github.com/scaleway/scaleway-cli/pkg/config"
-	"github.com/scaleway/scaleway-cli/pkg/utils"
+	"github.com/fflorens/scaleway-cli/pkg/api"
+	"github.com/fflorens/scaleway-cli/pkg/config"
+	"github.com/fflorens/scaleway-cli/pkg/utils"
 	"github.com/sirupsen/logrus"
 )
 
